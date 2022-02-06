@@ -86,7 +86,7 @@ const Result = () => {
           width={canvasWidth}
           height={canvasHeight}
           className="canvas"
-          style={{ marginTop: 80 }}
+          style={{ marginTop: 20 }}
         />
       </UploadContainer>
       <BottomContainer>
