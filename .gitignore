@@ -9,7 +9,10 @@
 /coverage
 
 # production
-/build
+/dist
+.idea/
+.env
+package-lock.json
 
 # misc
 .DS_Store
