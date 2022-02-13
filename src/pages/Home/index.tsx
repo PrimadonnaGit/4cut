@@ -5,14 +5,13 @@ import ImageUploadComponent from "@components/ImageUploadComponent";
 import { useHistory } from "react-router-dom";
 import PageLoader from "@components/PageLoader";
 import { ImageUploadItem } from "antd-mobile/es/components/image-uploader";
-import { demoSrc } from "@utils/utils";
 import TopNavBar from "@components/TopNavBar";
 import Drawer from "@components/Drawer";
 
 const Home: FC = () => {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [fileList, setFileList] = useState<ImageUploadItem[]>([{ url: demoSrc }, { url: demoSrc }, { url: demoSrc }]);
+  const [fileList, setFileList] = useState<ImageUploadItem[]>([]);
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const generateCut = () => {
@@ -20,7 +19,7 @@ const Home: FC = () => {
     //   Toast.show({
     //     content: "Please Select Four Images",
     //     duration: 1000,
-    //     position: "center",
+    //     position: "top",
     //   });
     //   return null;
     // }
@@ -28,7 +27,7 @@ const Home: FC = () => {
     // 페이지 이동
     setIsLoading(true);
     setTimeout(() => {
-      history.push("/result/uniq");
+      history.push("/result/uniq", { fileList: fileList });
     }, 2000);
   };
 
@@ -41,6 +40,7 @@ const Home: FC = () => {
         <TopNavBar setDrawerVisible={setDrawerVisible} />
 
         <ImageUploadComponent fileList={fileList} setFileList={setFileList} />
+
         <BottomContainer>
           <Button style={{ width: "49.2", height: "49.2", borderRadius: 50 }}>{"<"}</Button>
 

@@ -10,7 +10,7 @@ const TopNavBar = (props: any) => {
   return (
     <NavBar
       left={
-        <a href="#" style={{ color: "#fff" }}>
+        <a href="#" style={{ color: "#fff", fontSize: 18 }}>
           4Cut
         </a>
       }

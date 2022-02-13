@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { BottomContainer, Container, UploadContainer } from "./styles";
 import { Button } from "antd-mobile";
 import TopNavBar from "@components/TopNavBar";
@@ -21,6 +21,8 @@ const Result = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [drawerVisible, setDrawerVisible] = useState(false);
 
+  const location: any = useLocation();
+
   useEffect(() => {
     if (canvasRef) {
       const canvas: HTMLCanvasElement | null = canvasRef.current;
@@ -34,13 +36,15 @@ const Result = () => {
       };
       img.src = "/src/assets/images/frame/frame0.jpeg";
 
+      console.log(location.state.fileList);
       // images
       const img1 = new Image();
 
       img1.onload = () => {
         context?.drawImage(img1, 0, 0, img1.width, img1.width, 28, 28, 173, 173);
       };
-      img1.src = "/src/assets/images/cats/0.jpg";
+      // img1.src = "/src/assets/images/cats/0.jpg";
+      img1.src = location.state.fileList[0].url;
       const img2 = new Image();
 
       img2.onload = () => {
@@ -76,7 +80,7 @@ const Result = () => {
           />
         </UploadContainer>
         <BottomContainer>
-          <Button shape="rounded" color="primary" block size="large" style={{ width: "80%", marginTop: 10 }}>
+          <Button shape="rounded" block size="large" style={{ width: "80%", marginTop: 10 }}>
             Share 4Cut
           </Button>
         </BottomContainer>

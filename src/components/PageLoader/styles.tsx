@@ -31,26 +31,26 @@ export const AntSpinDot = styled.span`
   -webkit-animation: antrotate 1.2s infinite linear;
   animation: antRotate 1.2s infinite linear;
 
-  &:nth-child(1) {
+  &:nth-of-type(1) {
     top: 0;
     left: 0;
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     top: 0;
     right: 0;
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     right: 0;
     bottom: 0;
     -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
   }
 
-  &:nth-child(4) {
+  &:nth-of-type(4) {
     bottom: 0;
     left: 0;
     -webkit-animation-delay: 1.2s;

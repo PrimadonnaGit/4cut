@@ -14,23 +14,26 @@ const ImageUploadComponent = ({ fileList, setFileList }: ParamProps) => {
   const maxCount = 4;
 
   return (
-    <CustomImageUploader
-      value={fileList}
-      onChange={setFileList}
-      upload={mockUpload}
-      multiple
-      preview
-      deletable={false}
-      maxCount={maxCount}
-      showUpload={fileList.length < maxCount}
-      onCountExceed={(exceed) => {
-        Toast.show({ content: `최대 업로드 개수를 ${exceed}개 초과하였습니다.`, duration: 1000 });
-      }}
-    >
-      <Uploader>
-        <PlusIcon width={75} height={75} fill="#fff" />
-      </Uploader>
-    </CustomImageUploader>
+    <>
+      <CustomImageUploader
+        value={fileList}
+        onChange={setFileList}
+        upload={mockUpload}
+        multiple
+        preview
+        deletable={false}
+        maxCount={maxCount}
+        showUpload={fileList.length < maxCount}
+        onCountExceed={(exceed) => {
+          Toast.show({ content: `최대 업로드 개수를 ${exceed}개 초과하였습니다.`, duration: 1000 });
+        }}
+      >
+        {/*<p style={{ color: "#fff" }}>{`${fileList.length}/4`}</p>*/}
+        <Uploader>
+          <PlusIcon width={75} height={75} fill="#fff" />
+        </Uploader>
+      </CustomImageUploader>
+    </>
   );
 };
 

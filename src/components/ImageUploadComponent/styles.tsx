@@ -5,12 +5,14 @@ export const CustomImageUploader = styled(ImageUploader)`
   display: flex;
   width: 100%;
   overflow-x: auto;
+  touch-action: pan-x;
+
+  justify-content: ${(props) => (props.value?.length ? "start" : "center")};
 
   && > .adm-space-horizontal.adm-space-wrap {
-    justify-content: center;
-    align-items: center;
     flex-wrap: nowrap;
     flex-direction: row-reverse;
+    touch-action: pan-x;
 
     & > .adm-space-item {
       margin: 10;
@@ -36,6 +38,5 @@ export const Uploader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #999999;
   flex-direction: column;
 `;
