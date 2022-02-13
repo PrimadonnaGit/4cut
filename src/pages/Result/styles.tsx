@@ -24,6 +24,7 @@ export const UploadContainer = styled.div`
   display: flex;
   width: 100%;
   overflow-x: auto;
+  justify-content: center;
 
   & ::-webkit-scrollbar {
     display: none;
