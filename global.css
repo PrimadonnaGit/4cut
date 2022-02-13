@@ -68,6 +68,8 @@ body {
   justify-content: center;
   height: 100%;
   min-height: 420px;
+  background: #000;
+  color: #fff;
 }
 
 .page-loading-warp {
@@ -92,7 +94,7 @@ body {
   margin: 0;
   padding: 0;
   color: rgba(0, 0, 0, 0.65);
-  color: #1890ff;
+  color: #fff;
   font-size: 14px;
   font-variant: tabular-nums;
   line-height: 1.5;
@@ -126,7 +128,7 @@ body {
   display: block;
   width: 9px;
   height: 9px;
-  background-color: #1890ff;
+  background-color: #fff;
   border-radius: 100%;
   -webkit-transform: scale(0.75);
   -ms-transform: scale(0.75);
@@ -134,7 +136,7 @@ body {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0.3;
+  opacity: 1;
   -webkit-animation: antspinmove 1s infinite linear alternate;
   animation: antSpinMove 1s infinite linear alternate;
 }

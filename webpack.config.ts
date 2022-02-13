@@ -62,8 +62,12 @@ const config: Configuration = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(jpg|jpeg|png|svg)$/,
+        test: /\.(jpg|jpeg|png)$/,
         use: ["file-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
       },
       {
         test: /\.(ttf)$/,
@@ -74,9 +78,6 @@ const config: Configuration = {
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      // eslint: {
-      //   files: "./src/**/*",
-      // },
     }),
     new webpack.EnvironmentPlugin({ NODE_ENV: isDevelopment ? "development" : "production" }),
   ],

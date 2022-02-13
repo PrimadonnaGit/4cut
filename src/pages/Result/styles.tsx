@@ -20,7 +20,12 @@ export const BottomContainer = styled.div`
   margin-bottom: 20;
 `;
 
-export const AdContainer = styled.div`
+export const UploadContainer = styled.div`
+  display: flex;
   width: 100%;
-  height: 50;
+  overflow-x: auto;
+
+  & ::-webkit-scrollbar {
+    display: none;
+  }
 `;

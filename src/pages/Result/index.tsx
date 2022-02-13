@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BottomContainer, Container, UploadContainer } from "@pages/Home/styles";
-import { Button, NavBar, Space } from "antd-mobile";
-import { MoreOutline } from "antd-mobile-icons";
+import { BottomContainer, Container, UploadContainer } from "./styles";
+import { Button } from "antd-mobile";
+import TopNavBar from "@components/TopNavBar";
+import Drawer from "@components/Drawer";
 
 interface ResultParam {
   uniqueId: string;
@@ -18,8 +19,7 @@ const canvasHeight = baseHeight * ratio;
 const Result = () => {
   const params = useParams<ResultParam>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  console.log(params.uniqueId);
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
   useEffect(() => {
     if (canvasRef) {
@@ -63,39 +63,26 @@ const Result = () => {
   }, [canvasRef]);
 
   return (
-    <Container>
-      <NavBar
-        left={
-          <a href="#" style={{ color: "#000" }}>
-            4Cut
-          </a>
-        }
-        right={
-          <div style={{ fontSize: 40 }}>
-            <Space style={{ "--gap": "16px" }}>
-              <MoreOutline style={{ cursor: "pointer" }} />
-            </Space>
-          </div>
-        }
-        backArrow={false}
-        style={{ width: "100%", boxShadow: "0 3px 2px #f0f1f2" }}
-      />
-      <UploadContainer>
-        <canvas
-          ref={canvasRef}
-          width={canvasWidth}
-          height={canvasHeight}
-          className="canvas"
-          style={{ marginTop: 20 }}
-        />
-      </UploadContainer>
-      <BottomContainer>
-        {/*<AdContainer>AD</AdContainer>*/}
-        <Button shape="rounded" color="primary" block size="large" style={{ width: "80%", marginTop: 10 }}>
-          Share 4Cut
-        </Button>
-      </BottomContainer>
-    </Container>
+    <>
+      <Container>
+        <TopNavBar setDrawerVisible={setDrawerVisible} />
+        <UploadContainer>
+          <canvas
+            ref={canvasRef}
+            width={canvasWidth}
+            height={canvasHeight}
+            className="canvas"
+            style={{ marginTop: 20 }}
+          />
+        </UploadContainer>
+        <BottomContainer>
+          <Button shape="rounded" color="primary" block size="large" style={{ width: "80%", marginTop: 10 }}>
+            Share 4Cut
+          </Button>
+        </BottomContainer>
+      </Container>
+      <Drawer drawerVisible={drawerVisible} setDrawerVisible={setDrawerVisible} />
+    </>
   );
 };
 

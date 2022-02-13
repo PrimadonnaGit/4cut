@@ -18,6 +18,6 @@
       "@utils/*": ["src/utils/*"],
       "@typings/*": ["src/typings/*"],
       "@assets/*": ["src/assets/*"]
-    }
-  }
+    },
+  },
 }
